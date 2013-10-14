@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>name.prokop.bart</groupId>
+    <artifactId>logback-ext</artifactId>
+    <version>1.0.7</version>
+    <packaging>jar</packaging>
+
+    <name>Logback Extensions</name>
+    <url>https://github.com/bartprokop/bartlib</url>
+    <description>Bart Library</description>
+    
+    <scm>
+        <url>https://github.com/bartprokop/commons</url>
+    </scm>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+    
+    <developers>
+        <developer>
+            <name>Bartłomiej Prokop</name>
+            <email>prokop.bart@gmail.com</email>
+            <timezone>+1</timezone>
+            <url>http://bart.prokop.name/</url>
+        </developer>
+    </developers>
+
+    <distributionManagement>
+        <repository>
+            <id>bintray</id>
+            <name>bartprokop-maven-commons</name>
+            <url>https://api.bintray.com/maven/bartprokop/maven/logback-ext</url>
+        </repository>
+        <site>
+            <id>bart.prokop.name</id>
+            <url>ftp://ftp.internetdsl.pl/m2-sites/${project.artifactId}-${project.version}</url>
+        </site>
+    </distributionManagement>
+
+    <build>
+        <extensions>
+            <extension>
+                <groupId>org.apache.maven.wagon</groupId>
+                <artifactId>wagon-ftp</artifactId>
+                <version>2.4</version>
+            </extension>
+        </extensions>
+                
+        <plugins>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.1</version>
+                <configuration>
+                    <source>1.7</source>
+                    <target>1.7</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>2.2.1</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>2.9.1</version>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+    
+    <dependencies>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>1.0.7</version>    
+        </dependency>
+        
+        <!-- Testing framework -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.11</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+</project>
