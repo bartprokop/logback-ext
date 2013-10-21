@@ -5,6 +5,11 @@ import ch.qos.logback.core.AppenderBase;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * This class provides a in-memory logging appender for logback.
+ *
+ * @author Bartłomiej Prokop
+ */
 public class MemoryAppender extends AppenderBase<ILoggingEvent> {
 
     private int limit = 150;
